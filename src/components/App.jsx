@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types';
 import Profile from "./Profile/Profile";
+import Statistics from "./Statistics/Statistics";
+
 import user from 'data/user.json';
+import data from 'data/data.json';
+
 
 export const App = () => {
   return (
@@ -11,7 +15,8 @@ export const App = () => {
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: 40,
-        color: '#010101'
+        color: '#010101',
+        backgroundColor: '#e7ecf2',
       }}
     >
     <Profile 
@@ -20,6 +25,11 @@ export const App = () => {
     location={user.location}
     avatar={user.avatar}
     stats={user.stats}
+    />
+
+    <Statistics
+    title='Upload stats'
+    stats={data}
     />
 
     </div>
@@ -36,4 +46,15 @@ Profile.propTypes = {
     views: PropTypes.number.isRequired,
     likes: PropTypes.number.isRequired,
   } ) ,
+};
+
+Statistics.propTypes = {
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  )
 };
