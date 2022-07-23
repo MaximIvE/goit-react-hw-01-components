@@ -2,10 +2,12 @@ import PropTypes from 'prop-types';
 import Profile from "./Profile/Profile";
 import Statistics from "./Statistics/Statistics";
 import FriendList from './FriendList/FriendList';
+import TransactionHistory from './TransactionHistory/TransactionHistory';
 
 import user from 'data/user.json';
 import data from 'data/data.json';
 import friends from 'data/friends.json';
+import transaction from 'data/transactions.json';
 
 export const App = () => {
   return (
@@ -21,25 +23,24 @@ export const App = () => {
         
       }}
     >
-    <Profile 
-    username={user.username}
-    tag={user.tag}
-    location={user.location}
-    avatar={user.avatar}
-    stats={user.stats}
-    />
-
-    <div style={{display: 'flex', flexDirection: 'column',}}>
-      <Statistics
-      title='Upload stats'
-      stats={data}
+      <Profile 
+      username={user.username}
+      tag={user.tag}
+      location={user.location}
+      avatar={user.avatar}
+      stats={user.stats}
       />
 
-      <FriendList
-      friends={friends}
-      />
+      <div style={{display: 'flex', flexDirection: 'column',}}>
+        <Statistics
+        title='Upload stats'
+        stats={data}
+        />
 
-    </div>
+        <FriendList friends={friends}/>
+      </div>
+
+      <TransactionHistory items={transaction}/>
 
     </div>
   );
@@ -78,3 +79,12 @@ FriendList.propTypes = {
     }))
 }
 
+TransactionHistory.propTypes = {
+  friends: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      amount: PropTypes.number.isRequired,
+      currency: PropTypes.bool.isRequired,
+    }))
+}
