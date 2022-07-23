@@ -1,0 +1,35 @@
+.item{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 2px 2px rgba(193,193,193,0.1), 2px 4px 6px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+.status{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color:bisque;
+    margin: 0 12px 0 4px;
+}
+
+.avatar{
+    width: 72px;
+    height: 72px;
+    border-radius: 8px;
+    padding: 2px;
+    border: #e7ebf1 1px solid;
+    box-shadow: 0 1px 1px #e7ebf1, 2px 1px 6px rgba(0,0,0,0.1);
+    margin-right: 12px;
+}
+
+.name{
+    margin: 0;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 32px;
+    color: #122236;
+}

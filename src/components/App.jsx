@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import Profile from "./Profile/Profile";
 import Statistics from "./Statistics/Statistics";
+import FriendList from './FriendList/FriendList';
 
 import user from 'data/user.json';
 import data from 'data/data.json';
-
+import friends from 'data/friends.json';
 
 export const App = () => {
   return (
@@ -12,11 +13,12 @@ export const App = () => {
       style={{
         height: '100vh',
         display: 'flex',
+        flexWrap: 'wrap',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         fontSize: 40,
         color: '#010101',
-        backgroundColor: '#e7ecf2',
+        
       }}
     >
     <Profile 
@@ -27,10 +29,17 @@ export const App = () => {
     stats={user.stats}
     />
 
-    <Statistics
-    title='Upload stats'
-    stats={data}
-    />
+    <div style={{display: 'flex', flexDirection: 'column',}}>
+      <Statistics
+      title='Upload stats'
+      stats={data}
+      />
+
+      <FriendList
+      friends={friends}
+      />
+
+    </div>
 
     </div>
   );
@@ -58,3 +67,14 @@ Statistics.propTypes = {
     })
   )
 };
+
+FriendList.propTypes = {
+  friends: PropTypes.arrayOf(
+    PropTypes.exact({
+      avatar: PropTypes.string,
+      name: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+      isOnline: PropTypes.bool.isRequired,
+    }))
+}
+
