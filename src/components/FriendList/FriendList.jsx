@@ -3,7 +3,6 @@ import FriendListItem from 'components/FriendListItem/FriendListItem';
 import css from './FriendList.module.css';
 
 export default function FriendList({friends}){
-    const {avatar, name, isOnline, id} = friends[0];
     return (
         <ul className={css.friendList}>
            {
