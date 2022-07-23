@@ -17,9 +17,10 @@ export const App = () => {
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
-        alignItems: 'flex-start',
+        alignItems: 'center',
         fontSize: 40,
         color: '#010101',
+        marginTop: '10px',
         
       }}
     >
